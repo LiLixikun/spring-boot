@@ -1,0 +1,22 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /luckmoney
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/sell?serverTimezone=UTC&characterEncoding=utf-8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  http:
+    encoding:
+      charset: utf-8
+      enabled: true
+limit:
+    minMoney: 2
+    maxMoney: 999
+    descriptios: 最少要发 ${limit.minMoney} 元
