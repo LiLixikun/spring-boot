@@ -1,6 +1,7 @@
 package com.example.demo1.service;
 
 import com.example.demo1.dataobject.ProductInfo;
+import com.example.demo1.dto.CartDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -34,7 +35,10 @@ public interface ProductInfoService {
      * @return
      */
     ProductInfo findById(String productId);
+
     //加库存
+    void increaseStock(List<CartDTO> cartDTOList);
 
     //减库存
+    void decreaseStock(List<CartDTO> cartDTOList);
 }

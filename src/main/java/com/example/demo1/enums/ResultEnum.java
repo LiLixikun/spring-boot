@@ -3,6 +3,9 @@ package com.example.demo1.enums;
 public enum ResultEnum {
 
     SUCCESS(200, "成功"),
+    PRODUCT_NO_EXIT(-100,"商品不存在"),
+    PRODUCT_DOWN(-101,"商品已经下架"),
+    PRODUCT_STOCK_ERR(-102,"库存不足"),
     FAIL(-1, "失败"),
     UNLOGIN(-2, "未登陆");
 
