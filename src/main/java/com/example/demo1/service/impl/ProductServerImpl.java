@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -38,12 +38,25 @@ public class ProductServerImpl implements ProductInfoService {
 
     @Override
     public ProductInfo findById(String productId) {
-        return repository.findById(productId).get();
+        ProductInfo productInfo = repository.findById(productId).get();
+        if(productInfo==null){
+            throw new SellException(ResultEnum.PRODUCT_NO_EXIT);
+        }
+        return productInfo;
     }
 
     @Override
+    @Transactional
     public void increaseStock(List<CartDTO> cartDTOList) {
-
+        for (CartDTO cartDTO:cartDTOList){
+            ProductInfo productInfo = repository.findById(cartDTO.getProductId()).get();
+            if (productInfo == null) {
+                throw new SellException(ResultEnum.PRODUCT_NO_EXIT);
+            }
+            Integer stocks = productInfo.getProductStock() + cartDTO.getProductStock();
+            productInfo.setProductStock(stocks);
+            repository.save(productInfo);
+        }
     }
 
     @Override

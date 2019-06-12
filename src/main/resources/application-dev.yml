@@ -1,7 +1,7 @@
 server:
   port: 8080
   servlet:
-    context-path: /luckmoney
+    context-path: /sell
 spring:
   datasource:
     username: root

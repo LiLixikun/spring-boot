@@ -3,8 +3,7 @@ package com.example.demo1.service;
 
 import com.example.demo1.dto.OrderDTO;
 import org.springframework.data.domain.Page;
-
-import java.awt.print.Pageable;
+import org.springframework.data.domain.Pageable;
 
 
 public interface OrderService {
@@ -36,22 +35,22 @@ public interface OrderService {
 
     /**
      * 取消订单
-     * @param orderDTO
+     * @param orderId
      * @return
      */
-    OrderDTO cancelOrder(OrderDTO orderDTO);
+    OrderDTO cancelOrder(String orderId);
 
     /**
      * 完结订单
-     * @param orderDTO
+     * @param orderId
      * @return
      */
-    OrderDTO finishOrder(OrderDTO orderDTO);
+    OrderDTO finishOrder(String orderId);
 
     /**
      * 订单支付
-     * @param orderDTO
+     * @param orderId
      * @return
      */
-    OrderDTO payOrder(OrderDTO orderDTO);
+    OrderDTO payOrder(String orderId);
 }
