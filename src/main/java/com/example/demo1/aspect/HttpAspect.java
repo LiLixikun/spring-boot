@@ -16,36 +16,35 @@ public class HttpAspect {
 
     private final static Logger logger = LoggerFactory.getLogger(HttpAspect.class);
 
-    @Pointcut("execution(public  * com.example.demo1.controller.userController.*(..))")
-    public void log() {
-
-    }
-
-    @Before("log()")
-    public void doBefore(JoinPoint joinPoint) {
-
-        ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-        HttpServletRequest request = servletRequestAttributes.getRequest();
-        //url
-        logger.info("url=" + request.getRequestURI());
-        //method
-        logger.info("请求方法" + request.getMethod());
-        //ip
-        logger.info("请求方法" + request.getRemoteAddr());
-
-        //controller
-        logger.info(("类方法=" + joinPoint.getSignature().getDeclaringTypeName()));
-        //参数
-        logger.info("参数=" + joinPoint.getArgs());
-    }
-
-    @After("log()")
-    public void doAfter() {
-        logger.info("2222222222222");
-    }
-
-    @AfterReturning(returning = "object", pointcut = "log()")
-    public void doAfterReturnK(Object object) {
-        logger.info("response={}" + object.toString());
-    }
+//    public void log() {
+//
+//    }
+//
+//    @Before("log()")
+//    public void doBefore(JoinPoint joinPoint) {
+//
+//        ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+//        HttpServletRequest request = servletRequestAttributes.getRequest();
+//        //url
+//        logger.info("url=" + request.getRequestURI());
+//        //method
+//        logger.info("请求方法" + request.getMethod());
+//        //ip
+//        logger.info("请求方法" + request.getRemoteAddr());
+//
+//        //controller
+//        logger.info(("类方法=" + joinPoint.getSignature().getDeclaringTypeName()));
+//        //参数
+//        logger.info("参数=" + joinPoint.getArgs());
+//    }
+//
+//    @After("log()")
+//    public void doAfter() {
+//        logger.info("2222222222222");
+//    }
+//
+//    @AfterReturning(returning = "object", pointcut = "log()")
+//    public void doAfterReturnK(Object object) {
+//        logger.info("response={}" + object.toString());
+//    }
 }

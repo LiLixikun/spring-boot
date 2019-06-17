@@ -17,7 +17,10 @@ public enum ResultEnum {
     ORDER_CREAT_FAIL(-165,"订单创建失败"),
     FORM_ERR(-120,"参数不正确"),
     FAIL(-1, "失败"),
+    WEIXIN_GETTOKEN_ERR(-180,"获取微信token失败"),
+    WEIXIN_GET_USERINFO_ERR(-181,"获取微信用户信息失败"),
     UNLOGIN(-2, "未登陆");
+
 
     private Integer code;
 
