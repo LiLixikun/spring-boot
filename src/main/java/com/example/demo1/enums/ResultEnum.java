@@ -8,6 +8,7 @@ public enum ResultEnum {
     PRODUCT_STOCK_ERR(-102,"库存不足"),
     CART_NOT_NULL(-103,"购物车不能为空"),
     PRODUCT_ORDER_EMPTY(-150,"订单不存在"),
+    MENU_NO_EXIT(-151,"菜单不存在"),
     ORDER_NO_CANCEL(-160,"当前订单无法取消"),
     ORDER_DETAIL_EMPTY(-161,"订单无商品信息"),
     ORDER_CANCEL_FAIL(-162,"取消订单失败"),

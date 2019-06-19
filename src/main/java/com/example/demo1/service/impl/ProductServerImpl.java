@@ -7,6 +7,8 @@ import com.example.demo1.enums.ResultEnum;
 import com.example.demo1.exception.SellException;
 import com.example.demo1.repository.ProductInfoRepository;
 import com.example.demo1.service.ProductInfoService;
+import com.example.demo1.utils.KeyUtil;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,23 +34,39 @@ public class ProductServerImpl implements ProductInfoService {
     }
 
     @Override
-    public ProductInfo save(ProductInfo productInfo) {
-        return repository.save(productInfo);
+    public void save(ProductInfo productInfo) {
+        String productId= KeyUtil.getUniqueKey();
+        productId="P"+productId;
+        productInfo.setProductId(productId);
+        repository.save(productInfo);
+    }
+
+    @Override
+    public void delete(String productId) {
+        findById(productId);
+        repository.deleteById(productId);
     }
 
     @Override
     public ProductInfo findById(String productId) {
-        ProductInfo productInfo = repository.findById(productId).get();
-        if(productInfo==null){
+        ProductInfo productInfo = repository.findById(productId).orElse(null);
+        if (productInfo == null) {
             throw new SellException(ResultEnum.PRODUCT_NO_EXIT);
         }
         return productInfo;
     }
 
     @Override
+    public void updata(String productId, ProductInfo productInfo) {
+        ProductInfo productInfo1 = findById(productId);
+        BeanUtils.copyProperties(productInfo, productInfo1);
+        repository.save(productInfo1);
+    }
+
+    @Override
     @Transactional
     public void increaseStock(List<CartDTO> cartDTOList) {
-        for (CartDTO cartDTO:cartDTOList){
+        for (CartDTO cartDTO : cartDTOList) {
             ProductInfo productInfo = repository.findById(cartDTO.getProductId()).get();
             if (productInfo == null) {
                 throw new SellException(ResultEnum.PRODUCT_NO_EXIT);

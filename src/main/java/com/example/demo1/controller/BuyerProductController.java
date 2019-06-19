@@ -11,16 +11,14 @@ import com.example.demo1.service.ProductInfoService;
 import com.example.demo1.utils.ResultVoUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/buyer/product")
+@RequestMapping("/buyer")
 public class BuyerProductController {
 
     @Autowired
@@ -29,10 +27,8 @@ public class BuyerProductController {
     @Autowired
     private ProductInfoService productInfoService;
 
-    @GetMapping("/list")
+    @GetMapping("/product")
     public ResultVo list() {
-        ResultVo resultVo = new ResultVo();
-
         //查询所有上架产品
         List<ProductInfo> productInfoList = productInfoService.findUpAll();
 
@@ -72,5 +68,28 @@ public class BuyerProductController {
         }
 
         return ResultVoUtils.success(productVoList);
+    }
+
+    @GetMapping("/product/{productId}")
+    public ResultVo findById(@PathVariable("productId") String productId){
+        return ResultVoUtils.success(productInfoService.findById(productId));
+    }
+
+    @PutMapping("/product/{productId}")
+    public ResultVo update(@PathVariable("productId") String productId,ProductInfo productInfo){
+        productInfoService.updata(productId,productInfo);
+        return ResultVoUtils.success();
+    }
+
+    @PostMapping("/product")
+    public ResultVo creat(ProductInfo productInfo){
+        productInfoService.save(productInfo);
+        return ResultVoUtils.success();
+    }
+
+    @DeleteMapping("/product/{productId}")
+    public ResultVo delete(@PathVariable("productId") String productId){
+        productInfoService.delete(productId);
+        return ResultVoUtils.success();
     }
 }

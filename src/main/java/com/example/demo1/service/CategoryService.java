@@ -12,5 +12,9 @@ public interface CategoryService {
 
     List<ProductCategory> findByCategoryTypeIn(List<Integer> categoryTypeList);
 
-    ProductCategory save(ProductCategory productCategory);
+    void save(ProductCategory productCategory);
+
+    void deleteById(Integer categoryId);
+
+    void deleteAll(List<Integer> integerList);
 }

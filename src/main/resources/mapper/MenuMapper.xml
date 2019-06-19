@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo1.dataobject.mapper.MenuMapper">
+    <resultMap id="MenuResult" type="com.example.demo1.dataobject.Menu">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <id column="menu_name" property="menuName" jdbcType="VARCHAR"/>
+        <id column="link" property="link" jdbcType="VARCHAR"/>
+        <id column="menu_icon" property="menuIcon" jdbcType="VARCHAR"/>
+        <id column="pid" property="pid" jdbcType="INTEGER"/>
+        <collection property="children" column="id" select="selectTreeMenu"/>
+    </resultMap>
+
+    <select id="selectMenus" resultMap="MenuResult">
+        select * from menu;
+    </select>
+
+    <select id="addMenu">
+         insert into menu(menu_name,menu_icon,link,pid,id) values(#{menuName},#{menuIcon},#{link},#{pid},#{id});
+    </select>
+
+    <select id="deleteMenu">
+      delete from menu where id=#{id} or pid=#{id};
+    </select>
+
+    <select id="updateMenu">
+         insert into menu(menu_name,menu_icon,link) values(#{menuName},#{menuIcon},#{link}) where id=#{id};
+    </select>
+
+    <select id="selectTreeMenu" resultMap="MenuResult">
+         SELECT * FROM menu WHERE pid = #{id}
+    </select>
+
+</mapper>

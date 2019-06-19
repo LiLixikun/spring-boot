@@ -27,7 +27,14 @@ public interface ProductInfoService {
      * @param productInfo
      * @return
      */
-    ProductInfo save(ProductInfo productInfo);
+    void save(ProductInfo productInfo);
+
+    /**
+     * 修改商品信息
+     * @param productId
+     * @param productInfo
+     */
+    void updata(String productId,ProductInfo productInfo);
 
     /**
      * 查询商品详情
@@ -35,6 +42,12 @@ public interface ProductInfoService {
      * @return
      */
     ProductInfo findById(String productId);
+
+    /**
+     * 删除商品
+     * @param productId
+     */
+    void delete(String productId);
 
     //加库存
     void increaseStock(List<CartDTO> cartDTOList);

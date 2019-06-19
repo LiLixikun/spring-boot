@@ -8,7 +8,6 @@ import com.example.demo1.enums.ResultEnum;
 import com.example.demo1.exception.SellException;
 import com.example.demo1.form.OrderForm;
 import com.example.demo1.service.OrderService;
-import com.example.demo1.utils.ResultUtil;
 import com.example.demo1.utils.ResultVoUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

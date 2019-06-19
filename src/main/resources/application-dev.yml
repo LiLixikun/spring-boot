@@ -5,8 +5,8 @@ server:
 spring:
   datasource:
     username: root
-    password: a123456
-    url: jdbc:mysql://47.98.161.153:3306/sell?serverTimezone=UTC&characterEncoding=utf-8&useSSL=false
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/sell?serverTimezone=UTC&characterEncoding=utf-8&useSSL=false
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -20,3 +20,9 @@ wechat:
   wxAppId: wxa830230a1a818a46
   wxAppSecret: 6d2141b57fc59362f9f631f89d0243c7
   baseHttp: http://47.98.161.153
+
+logging:
+  level:
+    com.example.demo1.dataobject.mapper: trace
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

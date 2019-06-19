@@ -32,7 +32,7 @@ public class ProductServerImplTest {
 
     @Test
     public void findAll() {
-        PageRequest request=new PageRequest(1,10);
+        PageRequest request=PageRequest.of(1,10);
         Page<ProductInfo> list=productServer.findAll(request);
         System.out.println(list.getTotalElements());
     }
@@ -40,8 +40,7 @@ public class ProductServerImplTest {
     @Test
     public void save() {
         ProductInfo productInfo=new ProductInfo("234567","蔬菜",new BigDecimal(3.3),120,"苹果真好吃","https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2153937626,1074119156&fm=27&gp=0.jpg",1,0);
-        ProductInfo result= productServer.save(productInfo);
-        Assert.assertNotNull(result);
+        productServer.save(productInfo);
     }
 
     @Test
