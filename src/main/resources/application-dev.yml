@@ -19,6 +19,8 @@ spring:
 wechat:
   wxAppId: wxa830230a1a818a46
   wxAppSecret: 6d2141b57fc59362f9f631f89d0243c7
+  openAppId: wx6ad144e54af67d87
+  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
   baseHttp: http://47.98.161.153
 
 logging:

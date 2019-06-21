@@ -22,10 +22,9 @@ public interface MenuMapper {
 
     /**
      * 根据id修改
-     * @param id
      * @param menu
      */
-    void updateMenu(Integer id,Menu menu);
+    void updateMenu(Menu menu);
 
 
     /**

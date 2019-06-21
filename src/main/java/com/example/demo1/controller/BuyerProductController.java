@@ -11,6 +11,8 @@ import com.example.demo1.service.ProductInfoService;
 import com.example.demo1.utils.ResultVoUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -27,6 +29,24 @@ public class BuyerProductController {
     @Autowired
     private ProductInfoService productInfoService;
 
+    /**
+     * 查询所有商品
+     * @param pageSize
+     * @param pageNum
+     * @return
+     */
+    @GetMapping("/product/list")
+    public ResultVo getAllProducts(@RequestParam(value = "pageSize", required = false, defaultValue = "10") Integer pageSize,
+                                   @RequestParam(value = "pageNum", required = false, defaultValue = "1") Integer pageNum) {
+        PageRequest request = PageRequest.of(pageNum-1, pageSize);
+        Page page = productInfoService.findAll(request);
+        return ResultVoUtils.success(page);
+    }
+
+    /**
+     * 查询所有在售商品
+     * @return
+     */
     @GetMapping("/product")
     public ResultVo list() {
         //查询所有上架产品
@@ -71,24 +91,24 @@ public class BuyerProductController {
     }
 
     @GetMapping("/product/{productId}")
-    public ResultVo findById(@PathVariable("productId") String productId){
+    public ResultVo findById(@PathVariable("productId") String productId) {
         return ResultVoUtils.success(productInfoService.findById(productId));
     }
 
     @PutMapping("/product/{productId}")
-    public ResultVo update(@PathVariable("productId") String productId,ProductInfo productInfo){
-        productInfoService.updata(productId,productInfo);
+    public ResultVo update(@PathVariable("productId") String productId, @RequestBody ProductInfo productInfo) {
+        productInfoService.updata(productId, productInfo);
         return ResultVoUtils.success();
     }
 
     @PostMapping("/product")
-    public ResultVo creat(ProductInfo productInfo){
+    public ResultVo creat(@RequestBody ProductInfo productInfo) {
         productInfoService.save(productInfo);
         return ResultVoUtils.success();
     }
 
     @DeleteMapping("/product/{productId}")
-    public ResultVo delete(@PathVariable("productId") String productId){
+    public ResultVo delete(@PathVariable("productId") String productId) {
         productInfoService.delete(productId);
         return ResultVoUtils.success();
     }

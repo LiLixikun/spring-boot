@@ -39,9 +39,9 @@ public class MenuController {
         return ResultVoUtils.success();
     }
 
-    @PutMapping(value = "/update",produces = "application/json;charset=utf-8",consumes = "application/json;charset=utf-8")
+    @PostMapping(value = "/update")
     public ResultVo update(@RequestBody Menu menu){
-        menuMapper.updateMenu(menu.getId(),menu);
+        menuMapper.updateMenu(menu);
         return ResultVoUtils.success();
     }
 }

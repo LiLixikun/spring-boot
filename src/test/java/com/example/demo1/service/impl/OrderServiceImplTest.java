@@ -1,6 +1,7 @@
 package com.example.demo1.service.impl;
 
 import com.example.demo1.dataobject.OrderDetail;
+import com.example.demo1.dataobject.OrderMaster;
 import com.example.demo1.dto.OrderDTO;
 import com.example.demo1.enums.OrderStatusEnum;
 import com.example.demo1.enums.PayStatusEnum;
@@ -92,4 +93,11 @@ public class OrderServiceImplTest {
         Assert.assertEquals(PayStatusEnum.SUCCESS.getCode(), orderDTO.getPayStatus());
     }
 
+    @Test
+    public void findAllOrderList() {
+        PageRequest request=PageRequest.of(0,20);
+        Page<OrderMaster> detailPage=orderService.findAllOrderList(request);
+        log.info("查询出来的全部订单是={}",detailPage);
+        Assert.assertNotNull(detailPage);
+    }
 }

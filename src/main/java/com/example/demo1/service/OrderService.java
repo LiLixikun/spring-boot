@@ -1,6 +1,8 @@
 package com.example.demo1.service;
 
 
+import com.example.demo1.dataobject.OrderDetail;
+import com.example.demo1.dataobject.OrderMaster;
 import com.example.demo1.dto.OrderDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,6 +34,12 @@ public interface OrderService {
      */
     Page<OrderDTO> findOrderList(String buyer, Pageable pageable);
 
+    /**
+     * 查询全部订单
+     * @param page
+     * @return
+     */
+    Page<OrderMaster> findAllOrderList(Pageable page);
 
     /**
      * 取消订单

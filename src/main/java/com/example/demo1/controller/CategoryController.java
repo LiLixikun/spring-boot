@@ -33,15 +33,14 @@ public class CategoryController {
     }
 
     @PostMapping("/category")
-    public ResultVo add(@RequestParam("categoryName") String categoryName,
-                        @RequestParam("categoryType") Integer categoryType) {
-        ProductCategory productCategory = new ProductCategory(categoryName, categoryType);
-        categoryService.save(productCategory);
+    public ResultVo add(@RequestBody ProductCategory productCategory) {
+        ProductCategory productCategory1 = new ProductCategory(productCategory.getCategoryName(), productCategory.getCategoryType());
+        categoryService.save(productCategory1);
         return ResultVoUtils.success();
     }
 
     @PutMapping("/category/{categoryId}")
-    public ResultVo updata(@PathVariable("categoryId") Integer categoryId,ProductCategory productCategory) throws SellException {
+    public ResultVo updata(@PathVariable("categoryId") Integer categoryId,@RequestBody ProductCategory productCategory) throws SellException {
         ProductCategory category = categoryService.findById(categoryId);
         if (category == null) {
             throw new SellException(ResultEnum.PRODUCT_NO_EXIT);
