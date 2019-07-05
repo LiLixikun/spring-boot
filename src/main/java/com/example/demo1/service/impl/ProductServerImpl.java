@@ -30,14 +30,14 @@ public class ProductServerImpl implements ProductInfoService {
 
     @Override
     public Page<ProductInfo> findAll(Pageable pageable) {
-        Page<ProductInfo> productInfos=repository.findAll(pageable);
+        Page<ProductInfo> productInfos = repository.findAll(pageable);
         return productInfos;
     }
 
     @Override
     public void save(ProductInfo productInfo) {
-        String productId= KeyUtil.getUniqueKey();
-        productId="P"+productId;
+        String productId = KeyUtil.getUniqueKey();
+        productId = "P" + productId;
         productInfo.setProductId(productId);
         repository.save(productInfo);
     }

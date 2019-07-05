@@ -1,6 +1,7 @@
 package com.example.demo1.dataobject;
 
 import lombok.Data;
+
 import javax.persistence.Id;
 
 import javax.persistence.Entity;

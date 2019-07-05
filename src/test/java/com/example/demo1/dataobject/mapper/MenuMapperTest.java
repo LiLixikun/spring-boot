@@ -23,13 +23,13 @@ public class MenuMapperTest {
 
     @Test
     public void selectMenus() {
-        List<Menu> menus=menuMapper.selectMenus();
-        log.info("查询出来的数据是={}",menus);
-        Assert.assertNotEquals(0,menus.size());
+        List<Menu> menus = menuMapper.selectMenus();
+        log.info("查询出来的数据是={}", menus);
+        Assert.assertNotEquals(0, menus.size());
     }
 
     @Test
-    public void addMenu(){
+    public void addMenu() {
 
     }
 
@@ -40,8 +40,8 @@ public class MenuMapperTest {
 
     @Test
     public void selectTreeMenu() {
-        List<Menu> menus=menuMapper.selectTreeMenu(0);
-        log.info("查询出来的数据是={}",menus);
-        Assert.assertNotEquals(0,menus.size());
+        List<Menu> menus = menuMapper.selectTreeMenu(0);
+        log.info("查询出来的数据是={}", menus);
+        Assert.assertNotEquals(0, menus.size());
     }
 }

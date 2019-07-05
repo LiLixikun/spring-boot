@@ -3,7 +3,7 @@ package com.example.demo1.VO;
 import lombok.Data;
 
 @Data
-public class ResultVo<T>{
+public class ResultVo<T> {
     /**
      * 状态码
      */

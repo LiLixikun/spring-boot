@@ -17,9 +17,9 @@ public class CategoryServiceImpl implements CategoryService {
     private ProductCategoryRepository productCategoryRepository;
 
     @Override
-    public ProductCategory findById(Integer categoryId) throws SellException{
-        ProductCategory productCategory= productCategoryRepository.findById(categoryId).orElse(null);
-        if(productCategory==null){
+    public ProductCategory findById(Integer categoryId) throws SellException {
+        ProductCategory productCategory = productCategoryRepository.findById(categoryId).orElse(null);
+        if (productCategory == null) {
             throw new SellException(ResultEnum.PRODUCT_NO_EXIT);
         }
         return productCategory;
@@ -27,7 +27,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<ProductCategory> findAll() {
-       return productCategoryRepository.findAll();
+        return productCategoryRepository.findAll();
     }
 
     @Override

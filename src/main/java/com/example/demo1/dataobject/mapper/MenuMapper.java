@@ -1,6 +1,7 @@
 package com.example.demo1.dataobject.mapper;
 
 import com.example.demo1.dataobject.Menu;
+
 import java.util.List;
 
 public interface MenuMapper {
@@ -9,12 +10,14 @@ public interface MenuMapper {
 
     /**
      * 添加菜单
+     *
      * @param menu
      */
     void addMenu(Menu menu);
 
     /**
      * 删除菜单和子菜单
+     *
      * @param id
      */
     void deleteMenu(Integer id);
@@ -22,6 +25,7 @@ public interface MenuMapper {
 
     /**
      * 根据id修改
+     *
      * @param menu
      */
     void updateMenu(Menu menu);

@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderFormToOrderDTO {
-    static public OrderDTO converter(OrderForm orderForm){
+    static public OrderDTO converter(OrderForm orderForm) {
 
-        Gson gson=new Gson();
-        OrderDTO orderDTO=new OrderDTO();
+        Gson gson = new Gson();
+        OrderDTO orderDTO = new OrderDTO();
         orderDTO.setBuyerPhone(orderForm.getPhone());
         orderDTO.setBuyerName(orderForm.getName());
         orderDTO.setBuyerOpenid(orderForm.getOpenid());
@@ -23,8 +23,9 @@ public class OrderFormToOrderDTO {
 
         List<OrderDetail> orderDetailList = new ArrayList<>();
         try {
-            orderDetailList=gson.fromJson(orderForm.getItems(),new TypeToken<List<OrderDetail>>(){}.getType());
-        }catch (Exception e){
+            orderDetailList = gson.fromJson(orderForm.getItems(), new TypeToken<List<OrderDetail>>() {
+            }.getType());
+        } catch (Exception e) {
             throw new SellException(ResultEnum.FORM_ERR);
         }
         orderDTO.setOrderDetailList(orderDetailList);

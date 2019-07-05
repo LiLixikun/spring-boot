@@ -28,7 +28,7 @@ public class CategoryController {
     }
 
     @GetMapping("/category/{categoryId}")
-    public ResultVo findById(@PathVariable("categoryId") Integer categoryId){
+    public ResultVo findById(@PathVariable("categoryId") Integer categoryId) {
         return ResultVoUtils.success(categoryService.findById(categoryId));
     }
 
@@ -40,7 +40,7 @@ public class CategoryController {
     }
 
     @PutMapping("/category/{categoryId}")
-    public ResultVo updata(@PathVariable("categoryId") Integer categoryId,@RequestBody ProductCategory productCategory) throws SellException {
+    public ResultVo updata(@PathVariable("categoryId") Integer categoryId, @RequestBody ProductCategory productCategory) throws SellException {
         ProductCategory category = categoryService.findById(categoryId);
         if (category == null) {
             throw new SellException(ResultEnum.PRODUCT_NO_EXIT);

@@ -22,15 +22,15 @@ public class UserInfoController {
     private UserInfoRepository userInfoRepository;
 
     @GetMapping("/userList")
-    public ResultVo userList(){
-        List<UserInfo> userInfoList=userInfoRepository.findAll();
+    public ResultVo userList() {
+        List<UserInfo> userInfoList = userInfoRepository.findAll();
         return ResultVoUtils.success(userInfoList);
     }
 
     @GetMapping("/getUserInfo")
-    public ResultVo getUserInfo(@RequestParam("openId") String openId)throws SellException{
-        UserInfo userInfo=userInfoRepository.findById(openId).get();
-        if(userInfo==null){
+    public ResultVo getUserInfo(@RequestParam("openId") String openId) throws SellException {
+        UserInfo userInfo = userInfoRepository.findById(openId).get();
+        if (userInfo == null) {
             throw new SellException(ResultEnum.WEIXIN_GET_USERINFO_ERR);
         }
         return ResultVoUtils.success(userInfo);

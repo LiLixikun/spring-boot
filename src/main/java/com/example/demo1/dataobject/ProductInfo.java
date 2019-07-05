@@ -13,28 +13,42 @@ public class ProductInfo {
     @Id
     private String productId;
 
-    /**商品名称*/
-    private  String productName;
+    /**
+     * 商品名称
+     */
+    private String productName;
 
-    /**价格*/
+    /**
+     * 价格
+     */
     private BigDecimal productPrice;
 
-    /**库存*/
+    /**
+     * 库存
+     */
     private Integer productStock;
 
-    /**商品描述*/
-    private  String productDescription;
+    /**
+     * 商品描述
+     */
+    private String productDescription;
 
-    /**商品图片*/
-    private  String productIcon;
+    /**
+     * 商品图片
+     */
+    private String productIcon;
 
-    /**商品类别**/
-    private  Integer categoryType;
+    /**
+     * 商品类别
+     **/
+    private Integer categoryType;
 
-    /**商品状态 0 正常1 下架**/
-    private  Integer productStatus;
+    /**
+     * 商品状态 0 正常1 下架
+     **/
+    private Integer productStatus;
 
-    public  ProductInfo(){
+    public ProductInfo() {
 
     }
 

@@ -21,26 +21,26 @@ public class MenuController {
     private MenuMapper menuMapper;
 
     @GetMapping("/list")
-    public ResultVo getMenuList(){
+    public ResultVo getMenuList() {
         return ResultVoUtils.success(menuMapper.selectTreeMenu(0));
     }
 
 
     @PostMapping("/save")
-    public ResultVo save(@RequestBody Menu menu){
+    public ResultVo save(@RequestBody Menu menu) {
         //menuService.addMenu(menu);
         menuMapper.addMenu(menu);
         return ResultVoUtils.success();
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResultVo delete(@PathVariable("id") Integer id){
+    public ResultVo delete(@PathVariable("id") Integer id) {
         menuMapper.deleteMenu(id);
         return ResultVoUtils.success();
     }
 
     @PostMapping(value = "/update")
-    public ResultVo update(@RequestBody Menu menu){
+    public ResultVo update(@RequestBody Menu menu) {
         menuMapper.updateMenu(menu);
         return ResultVoUtils.success();
     }

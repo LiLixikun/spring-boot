@@ -19,8 +19,8 @@ public class Menu {
 
     private String menuIcon;
 
-    private Integer pid=0;
+    private Integer pid = 0;
 
     @Transient
-    private List<Menu> children=new ArrayList<>();
+    private List<Menu> children = new ArrayList<>();
 }

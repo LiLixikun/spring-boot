@@ -11,12 +11,14 @@ public interface ProductInfoService {
 
     /**
      * 查询在售商品
+     *
      * @return
      */
     List<ProductInfo> findUpAll();
 
     /**
      * 查询所有商品
+     *
      * @param pageable
      * @return
      */
@@ -24,6 +26,7 @@ public interface ProductInfoService {
 
     /**
      * 保存
+     *
      * @param productInfo
      * @return
      */
@@ -31,13 +34,15 @@ public interface ProductInfoService {
 
     /**
      * 修改商品信息
+     *
      * @param productId
      * @param productInfo
      */
-    void updata(String productId,ProductInfo productInfo);
+    void updata(String productId, ProductInfo productInfo);
 
     /**
      * 查询商品详情
+     *
      * @param productId
      * @return
      */
@@ -45,6 +50,7 @@ public interface ProductInfoService {
 
     /**
      * 删除商品
+     *
      * @param productId
      */
     void delete(String productId);

@@ -4,9 +4,8 @@ import lombok.Getter;
 
 @Getter
 public enum PayStatusEnum {
-    WAIT(0,"待支付"),
-    SUCCESS(1,"支付完成")
-    ;
+    WAIT(0, "待支付"),
+    SUCCESS(1, "支付完成");
 
     private Integer code;
 

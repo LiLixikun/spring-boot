@@ -26,26 +26,26 @@ public class ProductServerImplTest {
 
     @Test
     public void findUpAll() {
-        List<ProductInfo> productInfos=productServer.findUpAll();
-        Assert.assertEquals(0,productInfos.size());
+        List<ProductInfo> productInfos = productServer.findUpAll();
+        Assert.assertEquals(0, productInfos.size());
     }
 
     @Test
     public void findAll() {
-        PageRequest request=PageRequest.of(1,10);
-        Page<ProductInfo> list=productServer.findAll(request);
+        PageRequest request = PageRequest.of(1, 10);
+        Page<ProductInfo> list = productServer.findAll(request);
         System.out.println(list.getTotalElements());
     }
 
     @Test
     public void save() {
-        ProductInfo productInfo=new ProductInfo("234567","蔬菜",new BigDecimal(3.3),120,"苹果真好吃","https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2153937626,1074119156&fm=27&gp=0.jpg",1,0);
+        ProductInfo productInfo = new ProductInfo("234567", "蔬菜", new BigDecimal(3.3), 120, "苹果真好吃", "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2153937626,1074119156&fm=27&gp=0.jpg", 1, 0);
         productServer.save(productInfo);
     }
 
     @Test
     public void findById() {
-        ProductInfo productInfo=productServer.findById("123456");
+        ProductInfo productInfo = productServer.findById("123456");
         System.out.println(productInfo);
         Assert.assertNotNull(productInfo);
     }

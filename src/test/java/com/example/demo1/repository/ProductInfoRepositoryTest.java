@@ -21,16 +21,16 @@ public class ProductInfoRepositoryTest {
     private ProductInfoRepository productInfoRepository;
 
     @Test
-    public void save(){
-        ProductInfo productInfo=new ProductInfo("123456","皮蛋瘦肉粥",new BigDecimal(1.2),100,"很好喝的，又便宜","https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3300305952,1328708913&fm=27&gp=0.jpg",1,1);
-        ProductInfo restlt=productInfoRepository.save(productInfo);
+    public void save() {
+        ProductInfo productInfo = new ProductInfo("123456", "皮蛋瘦肉粥", new BigDecimal(1.2), 100, "很好喝的，又便宜", "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3300305952,1328708913&fm=27&gp=0.jpg", 1, 1);
+        ProductInfo restlt = productInfoRepository.save(productInfo);
         System.out.println(restlt);
         Assert.assertNotNull(restlt);
     }
 
     @Test
     public void findByProductStauts() {
-        List<ProductInfo> productInfos =productInfoRepository.findByProductStatus(0);
-        Assert.assertEquals(0,productInfos.size());
+        List<ProductInfo> productInfos = productInfoRepository.findByProductStatus(0);
+        Assert.assertEquals(0, productInfos.size());
     }
 }

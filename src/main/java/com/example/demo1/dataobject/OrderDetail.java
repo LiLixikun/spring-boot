@@ -19,19 +19,29 @@ public class OrderDetail {
 
     private String orderId;
 
-    /**商品ID*/
+    /**
+     * 商品ID
+     */
     private String productId;
 
-    /**商品名称*/
+    /**
+     * 商品名称
+     */
     private String productName;
 
-    /**商品价格*/
+    /**
+     * 商品价格
+     */
     private BigDecimal productPrice;
 
-    /**商品数量*/
+    /**
+     * 商品数量
+     */
     private Integer productQuantity;
 
-    /**商品图片*/
+    /**
+     * 商品图片
+     */
     private String productIcon;
 
 }

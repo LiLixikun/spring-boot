@@ -22,7 +22,7 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public void addMenu(Menu menu) {
-       repository.save(menu);
+        repository.save(menu);
     }
 
     @Override
@@ -33,8 +33,8 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public Menu findMenuById(Integer id) throws SellException {
-        Menu menu=repository.findById(id).orElse(null);
-        if(menu==null){
+        Menu menu = repository.findById(id).orElse(null);
+        if (menu == null) {
             throw new SellException(ResultEnum.MENU_NO_EXIT);
         }
         return menu;
@@ -42,13 +42,13 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public List<Menu> getMenus() {
-       //查询所有数据
-        List<Menu> menus=repository.findAll();
+        //查询所有数据
+        List<Menu> menus = repository.findAll();
         //查询所有的父级
-        List<Menu> pidMenu=findByPidMenu();
+        List<Menu> pidMenu = findByPidMenu();
 
-        for (Menu menu:pidMenu){
-          menu.setChildren(addChildren(menus,menu.getId()));
+        for (Menu menu : pidMenu) {
+            menu.setChildren(addChildren(menus, menu.getId()));
         }
 
         return pidMenu;
@@ -56,19 +56,20 @@ public class MenuServiceImpl implements MenuService {
 
     /**
      * 递归查询匹配添加到children
+     *
      * @param menuList
      * @param id
      * @return
      */
-    public static List<Menu> addChildren(List<Menu> menuList,Integer id){
-        log.info("【总数据是={},id=】",menuList,id);
-        log.info("pid={}",id);
-        List<Menu> list=new ArrayList<>();
-        for (Menu menu:menuList){
+    public static List<Menu> addChildren(List<Menu> menuList, Integer id) {
+        log.info("【总数据是={},id=】", menuList, id);
+        log.info("pid={}", id);
+        List<Menu> list = new ArrayList<>();
+        for (Menu menu : menuList) {
             //如果父和子ID相同
-            if(menu.getPid()==id){
+            if (menu.getPid() == id) {
                 //自己调用自己直到不相同
-                List<Menu> newList=addChildren(menuList,menu.getId());
+                List<Menu> newList = addChildren(menuList, menu.getId());
                 menu.setChildren(newList);
                 list.add(menu);
             }
@@ -78,8 +79,8 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public List<Menu> findByPidMenu() {
-       List<Menu> menus=repository.findAll();
-        menus=menus.stream().filter(e-> e.getPid()==0).collect(Collectors.toList());
+        List<Menu> menus = repository.findAll();
+        menus = menus.stream().filter(e -> e.getPid() == 0).collect(Collectors.toList());
         return menus;
     }
 }

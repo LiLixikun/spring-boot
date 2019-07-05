@@ -15,19 +15,19 @@
     </select>
 
     <select id="addMenu">
-         insert into menu(menu_name,menu_icon,link,pid) values(#{menuName},#{menuIcon},#{link},#{pid});
+        insert into menu(menu_name,menu_icon,link,pid) values(#{menuName},#{menuIcon},#{link},#{pid});
     </select>
 
     <select id="deleteMenu">
-      delete from menu where id=#{id} or pid=#{id};
+        delete from menu where id=#{id} or pid=#{id};
     </select>
 
     <select id="updateMenu">
-    update menu set menu_name=#{menuName},menu_icon=#{menuIcon},link=#{link},pid=#{pid} where id=#{id}
+        update menu set menu_name=#{menuName},menu_icon=#{menuIcon},link=#{link},pid=#{pid} where id=#{id}
     </select>
 
     <select id="selectTreeMenu" resultMap="MenuResult">
-         SELECT * FROM menu WHERE pid = #{id}
+        SELECT * FROM menu WHERE pid = #{id}
     </select>
 
 </mapper>

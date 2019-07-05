@@ -95,7 +95,7 @@ public class WeChatController {
 
         String access_token = wxMpOAuth2AccessToken.getAccessToken();
 
-        log.info("【微信授权token是={}】",access_token);
+        log.info("【微信授权token是={}】", access_token);
 
         WxMpUser wxMpUser = wxMpService.oauth2getUserInfo(wxMpOAuth2AccessToken, null);
         log.info("获取到的wxMpUser={}", wxMpUser);

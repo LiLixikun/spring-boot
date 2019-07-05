@@ -5,9 +5,10 @@ import java.util.Random;
 public class KeyUtil {
     /**
      * 获取随机数
+     *
      * @return
      */
-    public static synchronized  String getUniqueKey(){
+    public static synchronized String getUniqueKey() {
         Random random = new Random();
         Integer number = random.nextInt(900000) + 100000;
 

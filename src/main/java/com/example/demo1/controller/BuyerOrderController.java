@@ -60,7 +60,7 @@ public class BuyerOrderController {
     @GetMapping("/orderList")
     public ResultVo<List<OrderDetail>> orderList(@RequestParam(value = "pageSize", required = false, defaultValue = "10") Integer pageSize,
                                                  @RequestParam(value = "pageNum", required = false, defaultValue = "1") Integer pageNum) {
-        PageRequest request = PageRequest.of(pageNum-1, pageSize);
+        PageRequest request = PageRequest.of(pageNum - 1, pageSize);
         Page<OrderMaster> detailPage = orderService.findAllOrderList(request);
         return ResultVoUtils.success(detailPage);
     }

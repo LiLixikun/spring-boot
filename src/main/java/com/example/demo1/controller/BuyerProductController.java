@@ -31,20 +31,22 @@ public class BuyerProductController {
 
     /**
      * 查询所有商品
+     *
      * @param pageSize
      * @param pageNum
      * @return
      */
     @GetMapping("/product/list")
     public ResultVo<List<ProductInfo>> getAllProduct(@RequestParam(value = "pageSize", required = false, defaultValue = "10") Integer pageSize,
-                                                 @RequestParam(value = "pageNum", required = false, defaultValue = "1") Integer pageNum) {
-        PageRequest request = PageRequest.of(pageNum-1, pageSize);
+                                                     @RequestParam(value = "pageNum", required = false, defaultValue = "1") Integer pageNum) {
+        PageRequest request = PageRequest.of(pageNum - 1, pageSize);
         Page<ProductInfo> detailPage = productInfoService.findAll(request);
         return ResultVoUtils.success(detailPage);
     }
 
     /**
      * 查询所有在售商品
+     *
      * @return
      */
     @GetMapping("/product")
@@ -96,7 +98,7 @@ public class BuyerProductController {
     }
 
     @PutMapping("/product/{productId}")
-    public ResultVo update(@PathVariable("productId") String productId,@RequestBody ProductInfo productInfo) {
+    public ResultVo update(@PathVariable("productId") String productId, @RequestBody ProductInfo productInfo) {
         productInfoService.updata(productId, productInfo);
         return ResultVoUtils.success();
     }

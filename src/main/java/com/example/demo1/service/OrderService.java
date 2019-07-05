@@ -13,6 +13,7 @@ public interface OrderService {
 
     /**
      * 创建订单
+     *
      * @param orderDTO
      * @return
      */
@@ -21,6 +22,7 @@ public interface OrderService {
 
     /**
      * 查询订单详情
+     *
      * @param orderId
      * @return
      */
@@ -28,6 +30,7 @@ public interface OrderService {
 
     /**
      * 查询用户订单列表
+     *
      * @param buyer
      * @param pageable
      * @return
@@ -36,6 +39,7 @@ public interface OrderService {
 
     /**
      * 查询全部订单
+     *
      * @param page
      * @return
      */
@@ -43,6 +47,7 @@ public interface OrderService {
 
     /**
      * 取消订单
+     *
      * @param orderId
      * @return
      */
@@ -50,6 +55,7 @@ public interface OrderService {
 
     /**
      * 完结订单
+     *
      * @param orderId
      * @return
      */
@@ -57,6 +63,7 @@ public interface OrderService {
 
     /**
      * 订单支付
+     *
      * @param orderId
      * @return
      */

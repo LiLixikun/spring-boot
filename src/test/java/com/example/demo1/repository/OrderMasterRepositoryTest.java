@@ -23,14 +23,14 @@ public class OrderMasterRepositoryTest {
     @Test
     public void findByBuyerOpenId() {
         //2。0 分页写法
-        PageRequest request=PageRequest.of(0,2);
-        Page<OrderMaster> masters=masterRepository.findBybuyerOpenid("abc123",request);
+        PageRequest request = PageRequest.of(0, 2);
+        Page<OrderMaster> masters = masterRepository.findBybuyerOpenid("abc123", request);
         System.out.println(masters);
     }
 
     @Test
-    public void saveData(){
-        OrderMaster master=new OrderMaster();
+    public void saveData() {
+        OrderMaster master = new OrderMaster();
         master.setOrderId("2019611");
         master.setBuyerAddress("上海金融广场");
         master.setBuyerName("席坤1");
@@ -38,7 +38,7 @@ public class OrderMasterRepositoryTest {
         master.setOrderAmount(new BigDecimal(6.122));
         master.setBuyerOpenid("abc123");
 
-        OrderMaster result=masterRepository.save(master);
+        OrderMaster result = masterRepository.save(master);
         System.out.println(result);
     }
 }

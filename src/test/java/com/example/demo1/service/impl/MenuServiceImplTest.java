@@ -24,7 +24,7 @@ public class MenuServiceImplTest {
 
     @Test
     public void addMenu() {
-        Menu menu1=new Menu();
+        Menu menu1 = new Menu();
         menu1.setId(1);
         menu1.setLink("/link");
         menu1.setMenuIcon("home");
@@ -43,15 +43,15 @@ public class MenuServiceImplTest {
 
     @Test
     public void getMenus() {
-        List<Menu> menus=menuService.getMenus();
-        log.info("[【得到的数据是【】=",menus);
-        Assert.assertEquals(0,menus.size());
+        List<Menu> menus = menuService.getMenus();
+        log.info("[【得到的数据是【】=", menus);
+        Assert.assertEquals(0, menus.size());
     }
 
     @Test
     public void findByPidMenu() {
-      List<Menu> menus= menuService.findByPidMenu();
-      log.info("【查询出来的数据shi={}】",menus);
-        Assert.assertEquals(0,menus.size());
+        List<Menu> menus = menuService.findByPidMenu();
+        log.info("【查询出来的数据shi={}】", menus);
+        Assert.assertEquals(0, menus.size());
     }
 }

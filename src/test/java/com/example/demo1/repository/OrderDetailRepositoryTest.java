@@ -22,13 +22,13 @@ public class OrderDetailRepositoryTest {
 
     @Test
     public void findByOrOrderId() {
-        List<OrderDetail> detailList=detailRepository.findByOrOrderId("2019610");
-        Assert.assertNotEquals(0,detailList.size());
+        List<OrderDetail> detailList = detailRepository.findByOrOrderId("2019610");
+        Assert.assertNotEquals(0, detailList.size());
     }
 
     @Test
-    public void saveData(){
-        OrderDetail detail=new OrderDetail();
+    public void saveData() {
+        OrderDetail detail = new OrderDetail();
         detail.setDetailId("123456");
         detail.setOrderId("2019610");
         detail.setProductId("654321");
@@ -37,7 +37,7 @@ public class OrderDetailRepositoryTest {
         detail.setProductPrice(new BigDecimal(6.12));
         detail.setProductQuantity(200);
 
-        OrderDetail result=detailRepository.save(detail);
+        OrderDetail result = detailRepository.save(detail);
         Assert.assertNotNull(result);
     }
 }

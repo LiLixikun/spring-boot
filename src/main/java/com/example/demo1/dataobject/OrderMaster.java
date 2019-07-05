@@ -15,29 +15,45 @@ import java.util.Date;
 @DynamicUpdate
 public class OrderMaster {
 
-    /**订单号*/
+    /**
+     * 订单号
+     */
     @Id
     private String orderId;
 
-    /**姓名*/
+    /**
+     * 姓名
+     */
     private String buyerName;
 
-    /**手机号*/
+    /**
+     * 手机号
+     */
     private String buyerPhone;
 
-    /**买家地址*/
+    /**
+     * 买家地址
+     */
     private String buyerAddress;
 
-    /**买家微信openId*/
+    /**
+     * 买家微信openId
+     */
     private String buyerOpenid;
 
-    /**订单总额*/
+    /**
+     * 订单总额
+     */
     private BigDecimal orderAmount;
 
-    /**订单支付状态*/
-    private Integer payStatus= PayStatusEnum.WAIT.getCode();
+    /**
+     * 订单支付状态
+     */
+    private Integer payStatus = PayStatusEnum.WAIT.getCode();
 
-    /**订单状态*/
-    private Integer orderStatus= OrderStatusEnum.NEW.getCode();
+    /**
+     * 订单状态
+     */
+    private Integer orderStatus = OrderStatusEnum.NEW.getCode();
 
 }

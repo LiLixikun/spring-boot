@@ -15,9 +15,9 @@ public class CategoryServiceImplTest {
     private CategoryServiceImpl categoryService;
 
     @Test
-    public void findById(){
-       ProductCategory productCategory = categoryService.findById(1);
-       System.out.println(productCategory);
+    public void findById() {
+        ProductCategory productCategory = categoryService.findById(1);
+        System.out.println(productCategory);
     }
 
     @Test

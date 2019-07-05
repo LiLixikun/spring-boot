@@ -4,8 +4,8 @@ import lombok.Getter;
 
 @Getter
 public enum ProductStatusEnums {
-    UP(0,"上架"),
-    DOWM(1,"下架");
+    UP(0, "上架"),
+    DOWM(1, "下架");
 
     private Integer code;
 
